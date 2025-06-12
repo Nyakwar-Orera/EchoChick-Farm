@@ -1,0 +1,28 @@
+# Ignore Mac system files
+.DS_Store
+
+# Ignore node_modules (in case frontend uses Node)
+node_modules/
+
+# Ignore composer dependencies
+/vendor/
+
+# Ignore environment configuration files
+.env
+.env.*
+
+# Ignore log files
+*.log
+
+# Ignore IDE or editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore backup files
+*.bak
+*.tmp
+
+# Ignore uploaded files (optional)
+uploads/
