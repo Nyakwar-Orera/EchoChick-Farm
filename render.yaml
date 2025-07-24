@@ -1,7 +1,25 @@
+version: '3.8'
+
 services:
-  - type: web
-    name: echochick-farm
-    env: docker
-    repo: https://github.com/Nyakwar-Orera/EchoChick-Farm
-    branch: main
-    plan: free
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./PoultryFarm:/var/www/html
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: poultryfarm
+      DB_USER: root
+      DB_PASS: root
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: poultryfarm
+    volumes:
+      - ./Database/PoultryFarm.sql:/docker-entrypoint-initdb.d/init.sql
