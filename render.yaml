@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: echochick-farm
+    env: docker
+    repo: https://github.com/Nyakwar-Orera/EchoChick-Farm
+    branch: main
+    plan: free
